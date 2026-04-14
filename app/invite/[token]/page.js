@@ -73,7 +73,7 @@ export default function Invite({ params }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="min-h-screen flex items-center justify-center bg-[#080808]">
         <p className="text-[color:var(--gold)]/50 text-xs uppercase tracking-[0.4em] font-light">Verifying invitation</p>
       </div>
     )
@@ -81,7 +81,7 @@ export default function Invite({ params }) {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black p-8">
+      <div className="min-h-screen flex items-center justify-center bg-[#080808] p-8">
         <div className="text-center fade-up">
           <p className="text-[10px] tracking-[0.5em] text-white/40 uppercase mb-4 font-light">Access denied</p>
           <h1 className="font-display text-4xl font-light gold-text mb-4">{error}</h1>
@@ -94,8 +94,8 @@ export default function Invite({ params }) {
   const alreadyUsed = invite?.consumed_at != null
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,106,0.15),transparent_55%)]" />
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#080808] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.15),transparent_55%)]" />
       <div className="relative w-full max-w-sm fade-up">
         <div className="text-center mb-12">
           <p className="text-[10px] tracking-[0.5em] text-[color:var(--gold)]/70 uppercase mb-4 font-light">You're Invited</p>

@@ -86,7 +86,7 @@ export default function Chat({ params }) {
   }
 
   return (
-    <div className="h-screen flex flex-col bg-black">
+    <div className="h-screen flex flex-col bg-[#080808]">
       <div className="glass-strong flex items-center gap-3 px-4 py-3 border-b border-[color:var(--gold)]/10">
         <button onClick={() => router.push('/matches')}
           className="text-[color:var(--gold)]/70 text-2xl leading-none px-2 font-light">‹</button>

@@ -44,8 +44,8 @@ export default function JoinEvent() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col p-6 pt-16 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,106,0.1),transparent_60%)] pointer-events-none" />
+    <div className="min-h-screen flex flex-col p-6 pt-16 bg-[#080808] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.1),transparent_60%)] pointer-events-none" />
       <div className="relative flex flex-col flex-1 fade-up">
         <div className="mb-12 text-center">
           <p className="text-[10px] tracking-[0.4em] text-[color:var(--gold)]/70 uppercase mb-3 font-light">The Door</p>

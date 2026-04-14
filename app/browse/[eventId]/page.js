@@ -89,7 +89,7 @@ export default function Browse({ params }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="min-h-screen flex items-center justify-center bg-[#080808]">
         <p className="text-[color:var(--gold)]/50 text-xs uppercase tracking-[0.4em] font-light">Loading</p>
       </div>
     )
@@ -97,9 +97,9 @@ export default function Browse({ params }) {
 
   if (match) {
     return (
-      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center p-8 overflow-hidden z-50">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,106,0.28),transparent_65%)] pulse-glow" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,106,0.12),transparent_60%)]" />
+      <div className="fixed inset-0 bg-[#080808] flex flex-col items-center justify-center p-8 overflow-hidden z-50">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.28),transparent_65%)] pulse-glow" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.12),transparent_60%)]" />
 
         <div className="relative text-center fade-up w-full max-w-md">
           <p className="text-[10px] uppercase tracking-[0.65em] text-[color:var(--gold)]/70 mb-5 font-light">An introduction</p>
@@ -107,12 +107,12 @@ export default function Browse({ params }) {
 
           <div className="relative flex items-center justify-center mb-12 h-44">
             <div className="absolute inset-0 blur-3xl bg-[color:var(--gold)]/25 pulse-glow" />
-            <div className="relative w-36 h-36 rounded-full overflow-hidden border border-[color:var(--gold)]/60 -mr-6 translate-x-0 shadow-[0_0_40px_rgba(212,175,106,0.25)] bg-neutral-900">
+            <div className="relative w-36 h-36 rounded-full overflow-hidden border border-[color:var(--gold)]/60 -mr-6 translate-x-0 shadow-[0_0_40px_rgba(201,168,76,0.25)] bg-[#111111]">
               {myPhoto
                 ? <img src={myPhoto} alt="you" className="w-full h-full object-cover" />
                 : <div className="w-full h-full flex items-center justify-center text-white/20 text-3xl">◯</div>}
             </div>
-            <div className="relative w-36 h-36 rounded-full overflow-hidden border border-[color:var(--gold)]/60 -ml-6 shadow-[0_0_40px_rgba(212,175,106,0.25)] bg-neutral-900">
+            <div className="relative w-36 h-36 rounded-full overflow-hidden border border-[color:var(--gold)]/60 -ml-6 shadow-[0_0_40px_rgba(201,168,76,0.25)] bg-[#111111]">
               {match.profile.photo_url
                 ? <img src={match.profile.photo_url} alt={match.profile.name} className="w-full h-full object-cover" />
                 : <div className="w-full h-full flex items-center justify-center text-white/20 text-3xl">◯</div>}
@@ -160,7 +160,7 @@ export default function Browse({ params }) {
 
   if (cards.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-black text-center">
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#080808] text-center">
         <div className="fade-up">
           <p className="text-[10px] uppercase tracking-[0.5em] text-[color:var(--gold)]/70 mb-4">Intermission</p>
           <h2 className="font-display text-4xl font-light gold-text mb-3">You're all caught up</h2>
@@ -177,8 +177,8 @@ export default function Browse({ params }) {
 
   const card = cards[0]
   return (
-    <div className="min-h-screen bg-black flex flex-col pb-24 relative">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(212,175,106,0.08),transparent_60%)]" />
+    <div className="min-h-screen bg-[#080808] flex flex-col pb-24 relative">
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_60%)]" />
 
       <div className="flex items-center justify-between px-5 py-4">
         <p className="text-[10px] uppercase tracking-[0.4em] text-[color:var(--gold)]/60 font-light">The Room</p>
@@ -186,7 +186,7 @@ export default function Browse({ params }) {
       </div>
 
       <div className="flex-1 px-4 fade-up" key={card.id}>
-        <div className="card-glow relative rounded-[28px] overflow-hidden w-full aspect-[3/4.2] bg-neutral-900">
+        <div className="card-glow relative rounded-[28px] overflow-hidden w-full aspect-[3/4.2] bg-[#111111]">
           {card.photo_url ? (
             <img src={card.photo_url} alt={card.name} className="absolute inset-0 w-full h-full object-cover" />
           ) : (
@@ -194,7 +194,7 @@ export default function Browse({ params }) {
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
           {card.matchScore > 0 && (
-            <div className="absolute top-4 right-4 z-[3] px-3 py-1.5 rounded-full bg-black/60 backdrop-blur border border-[color:var(--gold)]/60">
+            <div className="absolute top-4 right-4 z-[3] px-3 py-1.5 rounded-full bg-[#080808]/60 backdrop-blur border border-[color:var(--gold)]/60">
               <p className="text-[10px] uppercase tracking-[0.3em] text-[color:var(--gold-bright)] font-light">
                 {card.matchScore >= 3 ? 'Strong match' : 'Potential match'}
               </p>
@@ -209,7 +209,7 @@ export default function Browse({ params }) {
             {card.tags?.length > 0 && (
               <div className="flex flex-wrap gap-2 mt-4">
                 {card.tags.map(tag => (
-                  <span key={tag} className="text-[10px] uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold-bright)] font-light bg-black/30">
+                  <span key={tag} className="text-[10px] uppercase tracking-[0.2em] px-3 py-1 rounded-full border border-[color:var(--gold)]/40 text-[color:var(--gold-bright)] font-light bg-[#080808]/30">
                     {tag}
                   </span>
                 ))}

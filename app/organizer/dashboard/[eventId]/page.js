@@ -145,15 +145,15 @@ export default function Dashboard({ params }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
+      <div className="min-h-screen flex items-center justify-center bg-[#080808]">
         <p className="text-[color:var(--gold)]/50 text-xs uppercase tracking-[0.4em] font-light">Loading</p>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-black p-6 pt-12 pb-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,106,0.1),transparent_60%)] pointer-events-none" />
+    <div className="min-h-screen bg-[#080808] p-6 pt-12 pb-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.1),transparent_60%)] pointer-events-none" />
       <div className="relative fade-up max-w-xl mx-auto">
         <p className="text-[10px] uppercase tracking-[0.5em] text-[color:var(--gold)]/70 mb-2 font-light">The House</p>
         <h1 className="font-display text-4xl font-light gold-text mb-8">{event?.name}</h1>
@@ -165,7 +165,7 @@ export default function Dashboard({ params }) {
             <p className="font-display text-6xl tracking-[0.3em] gold-text font-light mb-6">{event?.code}</p>
             {qrDataUrl && (
               <div className="flex justify-center mb-5">
-                <div className="p-3 rounded-2xl bg-black/40 border border-[color:var(--gold)]/30">
+                <div className="p-3 rounded-2xl bg-[#080808]/40 border border-[color:var(--gold)]/30">
                   <img src={qrDataUrl} alt="Scan to join" className="w-44 h-44" />
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function Dashboard({ params }) {
               const url = `${origin}/invite/${inv.token}`
               const claimed = !!inv.consumed_at
               return (
-                <div key={inv.id} className={`flex items-center gap-2 rounded-xl px-3 py-2 border ${claimed ? 'border-white/5 bg-white/[0.02] opacity-50' : 'border-[color:var(--gold)]/20 bg-black/30'}`}>
+                <div key={inv.id} className={`flex items-center gap-2 rounded-xl px-3 py-2 border ${claimed ? 'border-white/5 bg-white/[0.02] opacity-50' : 'border-[color:var(--gold)]/20 bg-[#080808]/30'}`}>
                   <span className="flex-1 font-mono text-xs text-white/70 truncate">{url}</span>
                   {claimed
                     ? <span className="text-[9px] uppercase tracking-[0.3em] text-white/40 font-light">Claimed</span>
@@ -248,7 +248,7 @@ export default function Dashboard({ params }) {
             )}
             {attendees.map(a => (
               <div key={a.id} className="flex items-center gap-3 rounded-xl px-3 py-2 border border-white/5 bg-white/[0.02]">
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-neutral-900 border border-[color:var(--gold)]/20 shrink-0">
+                <div className="w-8 h-8 rounded-full overflow-hidden bg-[#111111] border border-[color:var(--gold)]/20 shrink-0">
                   {a.photo_url
                     ? <img src={a.photo_url} alt="" className="w-full h-full object-cover" />
                     : <div className="w-full h-full" />}

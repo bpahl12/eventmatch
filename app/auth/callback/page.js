@@ -43,8 +43,8 @@ export default function AuthCallback() {
   }, [])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,106,0.12),transparent_60%)] pulse-glow" />
+    <div className="min-h-screen flex items-center justify-center bg-[#080808] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.12),transparent_60%)] pulse-glow" />
       <p className="relative text-[color:var(--gold)]/70 text-xs uppercase tracking-[0.5em] font-light">{status}</p>
     </div>
   )

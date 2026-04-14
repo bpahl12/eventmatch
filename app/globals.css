@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #f5f1e8;
-  --gold: #d4af6a;
-  --gold-bright: #e8c585;
-  --gold-deep: #a8864a;
-  --muted: #8a8275;
-  --surface: rgba(255, 255, 255, 0.04);
-  --border: rgba(212, 175, 106, 0.18);
+  --background: #080808;
+  --foreground: #E8E8E8;
+  --gold: #C9A84C;
+  --gold-bright: #E2C07A;
+  --gold-deep: #8f7733;
+  --muted: #888888;
+  --surface: #111111;
+  --border: rgba(201, 168, 76, 0.4);
+  --accent-glow: rgba(201, 168, 76, 0.2);
 }
 
 @theme inline {
@@ -36,70 +37,67 @@ html, body {
 }
 
 .gold-text {
-  background: linear-gradient(135deg, #e8c585 0%, #d4af6a 50%, #a8864a 100%);
+  background: linear-gradient(135deg, #E2C07A 0%, #C9A84C 55%, #8f7733 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .gold-btn {
-  background: linear-gradient(135deg, #e8c585 0%, #d4af6a 55%, #a8864a 100%);
-  color: #0a0a0a;
+  background: #C9A84C;
+  color: #080808;
   font-weight: 500;
   letter-spacing: 0.02em;
-  box-shadow: 0 8px 30px -10px rgba(212, 175, 106, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 30px -10px rgba(201, 168, 76, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
-.gold-btn:active:not(:disabled) {
-  transform: scale(0.98);
-}
-.gold-btn:disabled {
-  opacity: 0.35;
-}
+.gold-btn:hover:not(:disabled) { background: #E2C07A; }
+.gold-btn:active:not(:disabled) { transform: scale(0.98); }
+.gold-btn:disabled { opacity: 0.35; }
 
 .ghost-btn {
   background: transparent;
   color: var(--foreground);
-  border: 1px solid rgba(212, 175, 106, 0.3);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   font-weight: 300;
   letter-spacing: 0.02em;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
-.ghost-btn:active:not(:disabled) {
-  background: rgba(212, 175, 106, 0.08);
-}
+.ghost-btn:hover:not(:disabled) { border-color: #E2C07A; color: #E2C07A; }
+.ghost-btn:active:not(:disabled) { background: var(--accent-glow); }
 
 .glass {
-  background: rgba(12, 10, 8, 0.55);
+  background: rgba(17, 17, 17, 0.72);
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border: 1px solid rgba(212, 175, 106, 0.12);
+  border: 1px solid rgba(201, 168, 76, 0.18);
 }
 
 .glass-strong {
-  background: rgba(10, 8, 6, 0.78);
+  background: rgba(17, 17, 17, 0.88);
   backdrop-filter: blur(32px) saturate(160%);
   -webkit-backdrop-filter: blur(32px) saturate(160%);
-  border: 1px solid rgba(212, 175, 106, 0.16);
+  border: 1px solid rgba(201, 168, 76, 0.22);
 }
 
 .input-dark {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid rgba(201, 168, 76, 0.4);
   color: var(--foreground);
   transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
-.input-dark::placeholder { color: rgba(245, 241, 232, 0.3); font-weight: 300; }
+.input-dark::placeholder { color: var(--muted); font-weight: 300; }
 .input-dark:focus {
   outline: none;
-  border-color: rgba(212, 175, 106, 0.6);
-  background: rgba(212, 175, 106, 0.04);
-  box-shadow: 0 0 0 3px rgba(212, 175, 106, 0.1);
+  border-color: #C9A84C;
+  background: #0e0e0e;
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .card-glow {
   position: relative;
   isolation: isolate;
+  background: var(--surface);
 }
 .card-glow::before {
   content: "";
@@ -107,7 +105,7 @@ html, body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(232, 197, 133, 0.6), rgba(168, 134, 74, 0.1) 40%, rgba(232, 197, 133, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(226, 192, 122, 0.6), rgba(143, 119, 51, 0.12) 40%, rgba(226, 192, 122, 0.4) 100%);
   background-size: 200% 200%;
   animation: shimmer 6s ease-in-out infinite;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
