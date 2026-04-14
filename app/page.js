@@ -132,17 +132,17 @@ export default function Home() {
             <input
               type="text"
               inputMode="numeric"
-              maxLength={6}
+              maxLength={8}
               placeholder="••••••"
               value={token}
-              onChange={(e) => setToken(e.target.value.replace(/\D/g, '').slice(0, 6))}
+              onChange={(e) => setToken(e.target.value.replace(/\D/g, '').slice(0, 8))}
               onKeyDown={(e) => e.key === 'Enter' && verifyCode()}
-              className="input-dark w-full rounded-2xl px-4 py-5 text-3xl text-center font-display tracking-[0.6em]"
+              className="input-dark w-full rounded-2xl px-4 py-5 text-3xl text-center font-display tracking-[0.4em]"
               autoFocus
             />
             <button
               onClick={verifyCode}
-              disabled={loading || token.length !== 6}
+              disabled={loading || token.length < 6}
               className="gold-btn w-full rounded-full px-6 py-4 text-sm uppercase tracking-[0.25em]"
             >
               {loading ? 'Verifying' : 'Enter'}

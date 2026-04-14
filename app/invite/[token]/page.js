@@ -128,12 +128,12 @@ export default function Invite({ params }) {
         {!alreadyUsed && step === 'code' && (
           <div className="space-y-4">
             <p className="text-center text-white/50 text-sm font-light">A code was sent to {email}</p>
-            <input type="text" inputMode="numeric" maxLength={6} placeholder="••••••"
-              value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+            <input type="text" inputMode="numeric" maxLength={8} placeholder="••••••"
+              value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 8))}
               onKeyDown={(e) => e.key === 'Enter' && verifyCode()}
-              className="input-dark w-full rounded-2xl px-4 py-5 text-3xl text-center font-display tracking-[0.6em]"
+              className="input-dark w-full rounded-2xl px-4 py-5 text-3xl text-center font-display tracking-[0.4em]"
               autoFocus />
-            <button onClick={verifyCode} disabled={sending || code.length !== 6}
+            <button onClick={verifyCode} disabled={sending || code.length < 6}
               className="gold-btn w-full rounded-full px-6 py-4 text-sm uppercase tracking-[0.25em]">
               {sending ? 'Verifying' : 'Enter'}
             </button>
