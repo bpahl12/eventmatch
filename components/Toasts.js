@@ -97,7 +97,7 @@ export default function Toasts() {
           onClick={() => { t.onClick?.(); setToasts(prev => prev.filter(x => x.id !== t.id)) }}
           className="pointer-events-auto w-full max-w-sm glass-strong rounded-2xl p-3 flex items-center gap-3 border border-[color:var(--gold)]/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)] text-left toast-in"
         >
-          <div className="w-10 h-10 rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111111] shrink-0">
+          <div className="w-10 h-10 rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111621] shrink-0">
             {t.photo
               ? <img src={t.photo} alt="" className="w-full h-full object-cover" />
               : <div className="w-full h-full" />}

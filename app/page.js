@@ -81,9 +81,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#080808] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.15),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(143,119,51,0.08),transparent_60%)]" />
+    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#0A0E14] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,196,208,0.15),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(110,122,136,0.08),transparent_60%)]" />
 
       <div className="relative w-full max-w-sm fade-up">
         <div className="text-center mb-16">

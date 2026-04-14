@@ -49,15 +49,15 @@ export default function Matches() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#080808]">
+      <div className="min-h-screen flex items-center justify-center bg-[#0A0E14]">
         <p className="text-[color:var(--gold)]/50 text-xs uppercase tracking-[0.4em] font-light">Loading</p>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#080808] flex flex-col pb-24 relative">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_60%)]" />
+    <div className="min-h-screen bg-[#0A0E14] flex flex-col pb-24 relative">
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(184,196,208,0.08),transparent_60%)]" />
 
       <div className="px-6 pt-12 pb-6">
         <p className="text-[10px] uppercase tracking-[0.5em] text-[color:var(--gold)]/70 mb-2 font-light">Your Circle</p>

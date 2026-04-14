@@ -5,8 +5,8 @@ import { supabase } from '@/lib/supabase'
 import { TAXONOMY } from '@/lib/taxonomy'
 
 const Shell = ({ children, stepText, title, subtitle }) => (
-  <div className="min-h-screen flex flex-col p-6 pt-12 bg-[#080808] relative overflow-hidden">
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_60%)] pointer-events-none" />
+  <div className="min-h-screen flex flex-col p-6 pt-12 bg-[#0A0E14] relative overflow-hidden">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,196,208,0.08),transparent_60%)] pointer-events-none" />
     <div className="relative flex flex-col flex-1 fade-up">
       <div className="mb-10">
         <p className="text-[10px] tracking-[0.4em] text-[color:var(--gold)]/70 uppercase mb-3 font-light">{stepText}</p>
@@ -259,7 +259,7 @@ export default function Onboarding() {
       <div className="flex-1 flex flex-col items-center justify-center">
         <label className="cursor-pointer">
           <div className={`w-44 h-44 rounded-full border border-[color:var(--gold)]/30 flex items-center justify-center overflow-hidden relative ${form.photoPreview ? 'border-[color:var(--gold)]/60' : ''}`}>
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.15),transparent_70%)] pulse-glow" />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(184,196,208,0.15),transparent_70%)] pulse-glow" />
             {form.photoPreview ? (
               <img src={form.photoPreview} alt="" className="w-full h-full object-cover relative" />
             ) : (

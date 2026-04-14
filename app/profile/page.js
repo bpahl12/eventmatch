@@ -153,7 +153,7 @@ export default function Profile() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#080808]">
+      <div className="min-h-screen flex items-center justify-center bg-[#0A0E14]">
         <p className="text-[color:var(--gold)]/50 text-xs uppercase tracking-[0.4em] font-light">Loading</p>
       </div>
     )
@@ -161,8 +161,8 @@ export default function Profile() {
 
   if (editing) {
     return (
-      <div className="min-h-screen bg-[#080808] pb-28 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.08),transparent_60%)] pointer-events-none" />
+      <div className="min-h-screen bg-[#0A0E14] pb-28 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,196,208,0.08),transparent_60%)] pointer-events-none" />
         <div className="relative max-w-md mx-auto p-6 pt-10 fade-up">
           <div className="flex items-baseline justify-between mb-8">
             <p className="text-[10px] uppercase tracking-[0.5em] text-[color:var(--gold)]/70 font-light">Editing</p>
@@ -170,7 +170,7 @@ export default function Profile() {
           </div>
 
           <label className="block cursor-pointer mb-8">
-            <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111111]">
+            <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111621]">
               {form.photoPreview
                 ? <img src={form.photoPreview} alt="" className="w-full h-full object-cover" />
                 : <div className="w-full h-full flex items-center justify-center text-white/30 text-2xl">+</div>}
@@ -231,8 +231,8 @@ export default function Profile() {
   }
 
   return (
-    <div className="min-h-screen bg-[#080808] pb-24 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,168,76,0.1),transparent_60%)] pointer-events-none" />
+    <div className="min-h-screen bg-[#0A0E14] pb-24 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,196,208,0.1),transparent_60%)] pointer-events-none" />
       <div className="relative max-w-md mx-auto p-6 pt-10 fade-up">
         <div className="flex items-baseline justify-between mb-6">
           <p className="text-[10px] uppercase tracking-[0.5em] text-[color:var(--gold)]/70 font-light">Profile</p>
@@ -243,7 +243,7 @@ export default function Profile() {
         </div>
 
         <div className="card-glow rounded-3xl p-6 text-center mb-5">
-          <div className="w-28 h-28 rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111111] mx-auto mb-4">
+          <div className="w-28 h-28 rounded-full overflow-hidden border border-[color:var(--gold)]/40 bg-[#111621] mx-auto mb-4">
             {profile.photo_url
               ? <img src={profile.photo_url} alt={profile.name} className="w-full h-full object-cover" />
               : <div className="w-full h-full flex items-center justify-center text-white/20 text-3xl">◯</div>}
