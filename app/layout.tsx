@@ -18,6 +18,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Access Collective",
   description: "A curated network, by invitation.",
+  applicationName: "Access",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Access",
+  },
+  themeColor: "#0A0E14",
 };
 
 export default function RootLayout({

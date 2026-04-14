@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D5DCE5"/>
+      <stop offset="0.55" stop-color="#B8C4D0"/>
+      <stop offset="1" stop-color="#6E7A88"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.7">
+      <stop offset="0" stop-color="#1B2330" stop-opacity="1"/>
+      <stop offset="1" stop-color="#0A0E14" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#glow)"/>
+  <rect x="10" y="10" width="492" height="492" rx="104" fill="none" stroke="url(#p)" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="256" y="360" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif"
+        font-style="italic" font-weight="300" font-size="400" fill="url(#p)" letter-spacing="-12">A</text>
+  <text x="256" y="430" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+        font-weight="300" font-size="30" fill="url(#p)" letter-spacing="14">ACCESS</text>
+</svg>
