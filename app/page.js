@@ -9,6 +9,7 @@ export default function Home() {
   const [token, setToken] = useState('')
   const [step, setStep] = useState('email')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const checkSession = async () => {
@@ -24,9 +25,22 @@ export default function Home() {
   const sendCode = async () => {
     if (!email) return
     setLoading(true)
-    const { error } = await supabase.auth.signInWithOtp({ email })
-    if (error) alert(error.message)
-    else setStep('code')
+    setError('')
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: `${window.location.origin}/auth/callback` }
+      })
+      if (error) {
+        console.error('signInWithOtp error:', error)
+        setError(error.message)
+      } else {
+        setStep('code')
+      }
+    } catch (e) {
+      console.error('sendCode threw:', e)
+      setError(e?.message || 'Something went wrong.')
+    }
     setLoading(false)
   }
 
@@ -86,6 +100,7 @@ export default function Home() {
             >
               {loading ? 'Sending' : 'Request Access'}
             </button>
+            {error && <p className="text-red-300/80 text-xs text-center font-light">{error}</p>}
             <div className="flex items-center gap-3 py-2">
               <div className="flex-1 h-px bg-white/10" />
               <span className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-light">or</span>
