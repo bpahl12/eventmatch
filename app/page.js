@@ -16,8 +16,14 @@ export default function Home() {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) return
       const { data: profile } = await supabase
-        .from('profiles').select('id').eq('id', session.user.id).single()
-      router.replace(profile ? '/join' : '/onboarding')
+        .from('profiles').select('id').eq('id', session.user.id).maybeSingle()
+      if (!profile) { router.replace('/onboarding'); return }
+      const { data: attendee } = await supabase
+        .from('event_attendees').select('event_id')
+        .eq('user_id', session.user.id)
+        .order('created_at', { ascending: false })
+        .limit(1).maybeSingle()
+      router.replace(attendee ? `/browse/${attendee.event_id}` : '/join')
     }
     checkSession()
   }, [router])
@@ -64,8 +70,14 @@ export default function Home() {
     }
     const { data: { user } } = await supabase.auth.getUser()
     const { data: profile } = await supabase
-      .from('profiles').select('id').eq('id', user.id).single()
-    router.replace(profile ? '/join' : '/onboarding')
+      .from('profiles').select('id').eq('id', user.id).maybeSingle()
+    if (!profile) { router.replace('/onboarding'); return }
+    const { data: attendee } = await supabase
+      .from('event_attendees').select('event_id')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(1).maybeSingle()
+    router.replace(attendee ? `/browse/${attendee.event_id}` : '/join')
   }
 
   return (

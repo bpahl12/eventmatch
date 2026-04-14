@@ -25,7 +25,13 @@ export default function AuthCallback() {
           const { data: profile } = await supabase
             .from('profiles').select('id').eq('id', user.id).maybeSingle()
           if (!profile) { window.location.href = '/onboarding'; return }
-          window.location.href = inviteEventId ? `/browse/${inviteEventId}` : '/join'
+          if (inviteEventId) { window.location.href = `/browse/${inviteEventId}`; return }
+          const { data: attendee } = await supabase
+            .from('event_attendees').select('event_id')
+            .eq('user_id', user.id)
+            .order('created_at', { ascending: false })
+            .limit(1).maybeSingle()
+          window.location.href = attendee ? `/browse/${attendee.event_id}` : '/join'
         } else {
           window.location.href = '/'
         }
