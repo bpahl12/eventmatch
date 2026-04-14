@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f5f1e8;
+  --gold: #d4af6a;
+  --gold-bright: #e8c585;
+  --gold-deep: #a8864a;
+  --muted: #8a8275;
+  --surface: rgba(255, 255, 255, 0.04);
+  --border: rgba(212, 175, 106, 0.18);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-deep: var(--gold-deep);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
+html, body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.font-display {
+  font-family: var(--font-display), serif;
+  letter-spacing: -0.01em;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #e8c585 0%, #d4af6a 50%, #a8864a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-btn {
+  background: linear-gradient(135deg, #e8c585 0%, #d4af6a 55%, #a8864a 100%);
+  color: #0a0a0a;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 30px -10px rgba(212, 175, 106, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.gold-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.gold-btn:disabled {
+  opacity: 0.35;
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid rgba(212, 175, 106, 0.3);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.ghost-btn:active:not(:disabled) {
+  background: rgba(212, 175, 106, 0.08);
+}
+
+.glass {
+  background: rgba(12, 10, 8, 0.55);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(212, 175, 106, 0.12);
+}
+
+.glass-strong {
+  background: rgba(10, 8, 6, 0.78);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border: 1px solid rgba(212, 175, 106, 0.16);
+}
+
+.input-dark {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--foreground);
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.input-dark::placeholder { color: rgba(245, 241, 232, 0.3); font-weight: 300; }
+.input-dark:focus {
+  outline: none;
+  border-color: rgba(212, 175, 106, 0.6);
+  background: rgba(212, 175, 106, 0.04);
+  box-shadow: 0 0 0 3px rgba(212, 175, 106, 0.1);
+}
+
+.card-glow {
+  position: relative;
+  isolation: isolate;
+}
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(232, 197, 133, 0.6), rgba(168, 134, 74, 0.1) 40%, rgba(232, 197, 133, 0.4) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 6s ease-in-out infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+.pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.5s ease-out both; }
+
+/* hide scrollbars discreetly */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-in { animation: toast-in 0.35s ease-out both; }
