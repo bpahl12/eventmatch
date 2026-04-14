@@ -55,8 +55,8 @@ export default function BottomNav() {
     {
       key: 'profile',
       label: 'Profile',
-      active: pathname?.startsWith('/onboarding'),
-      onClick: () => router.push('/onboarding'),
+      active: pathname?.startsWith('/profile') || pathname?.startsWith('/onboarding'),
+      onClick: () => router.push('/profile'),
       icon: (
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">
           <circle cx="12" cy="8" r="3.5" />

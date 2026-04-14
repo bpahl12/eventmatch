@@ -87,6 +87,11 @@ export default function Onboarding() {
         .select('name, job_title, company, bio, tags, photo_url, looking_for, can_offer')
         .eq('id', user.id).maybeSingle()
 
+      if (profile && profile.name && (profile.looking_for || []).length > 0 && (profile.can_offer || []).length > 0) {
+        router.replace('/profile')
+        return
+      }
+
       setForm(prev => ({
         ...prev,
         name: profile?.name || metaName || '',
@@ -158,7 +163,7 @@ export default function Onboarding() {
         photo_url: photoUrl
       })
       if (error) throw error
-      router.push('/join')
+      router.push('/profile')
     } catch (error) {
       alert(error.message)
     }
